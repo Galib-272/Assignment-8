@@ -2,7 +2,6 @@
 
 @plugin "daisyui";
 
-/* This is where you can force the cupcake theme for your assignment */
 :root {
   --background: #ffffff;
   --foreground: #171717;

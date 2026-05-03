@@ -16,7 +16,7 @@ export const auth = betterAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     },
   },
-  // Required for the "Challenge" to update name/image
+
   user: {
     modelName: "users",
   },
