@@ -3,9 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-base-300 text-base-content w-full mt-auto">
-      {/* ✅ max-w-6xl mx-auto gives equal margins on both sides */}
       <div className="max-w-6xl mx-auto px-10 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-        {/* Brand */}
         <div>
           <h6 className="text-primary font-black text-lg uppercase mb-3">
             SkillSphere
@@ -15,33 +13,38 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Company */}
         <div>
           <h6 className="footer-title mb-3">Company</h6>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link href="/about-us" className="link link-hover">About us</Link>
+              <Link href="/about-us" className="link link-hover">
+                About us
+              </Link>
             </li>
             <li>
-              <Link href="/contact" className="link link-hover">Contact</Link>
+              <Link href="/contact" className="link link-hover">
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
 
-        {/* Legal */}
         <div>
           <h6 className="footer-title mb-3">Legal</h6>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link href="/terms-conditions" className="link link-hover">Terms & Conditions</Link>
+              <Link href="/terms-conditions" className="link link-hover">
+                Terms & Conditions
+              </Link>
             </li>
             <li>
-              <Link href="/privacy-policy" className="link link-hover">Privacy Policy</Link>
+              <Link href="/privacy-policy" className="link link-hover">
+                Privacy Policy
+              </Link>
             </li>
           </ul>
         </div>
 
-        {/* Social */}
         <div>
           <h6 className="footer-title mb-3">Social</h6>
           <div className="flex gap-4">
@@ -82,7 +85,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Copyright */}
       <div className="border-t border-base-content/10">
         <div className="max-w-6xl mx-auto px-10 py-4 text-center text-sm opacity-60">
           © {new Date().getFullYear()} SkillSphere. All rights reserved.
