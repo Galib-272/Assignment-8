@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import CourseCard from "@/components/CourseCard";
-import { motion } from "framer-motion"; // 1. Import motion
+import { motion } from "framer-motion";
 
 export default function AllCoursesPage() {
   const [courses, setCourses] = useState([]);
@@ -13,12 +13,12 @@ export default function AllCoursesPage() {
       .then((res) => res.json())
       .then((data) => {
         setCourses(data);
-        setLoading(false); // FIXED: Removed the extra setLoading() call
+        setLoading(false);
       });
   }, []);
 
   const filteredCourses = courses.filter((course) =>
-    course.title.toLowerCase().includes(searchQuery.toLowerCase())
+    course.title.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   if (loading) {
@@ -31,8 +31,7 @@ export default function AllCoursesPage() {
 
   return (
     <div className="container mx-auto px-4 py-12 min-h-screen">
-      {/* 2. Added motion to Header for a fade-in effect */}
-      <motion.header 
+      <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -46,8 +45,7 @@ export default function AllCoursesPage() {
         </p>
       </motion.header>
 
-      {/* 3. Added motion to Search Bar */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.2 }}
@@ -68,7 +66,12 @@ export default function AllCoursesPage() {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
           </svg>
         </div>
         <p className="text-sm text-center mt-3 opacity-60">
@@ -76,10 +79,8 @@ export default function AllCoursesPage() {
         </p>
       </motion.div>
 
-      {/* --- Course Grid --- */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredCourses.map((course, index) => (
-          // 4. Added Staggered Animation to the cards
           <motion.div
             key={course.id}
             initial={{ opacity: 0, y: 30 }}
@@ -92,12 +93,14 @@ export default function AllCoursesPage() {
       </div>
 
       {filteredCourses.length === 0 && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="text-center py-20"
         >
-          <h3 className="text-2xl font-bold opacity-30">No courses found matching your search.</h3>
+          <h3 className="text-2xl font-bold opacity-30">
+            No courses found matching your search.
+          </h3>
         </motion.div>
       )}
     </div>

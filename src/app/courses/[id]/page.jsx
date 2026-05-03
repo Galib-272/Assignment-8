@@ -1,6 +1,6 @@
 "use client";
 import { useParams, useRouter } from "next/navigation";
-import { useState, useEffect, useRef } from "react"; // ✅ add useRef
+import { useState, useEffect, useRef } from "react";
 import { toast } from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
 
@@ -9,13 +9,12 @@ export default function CourseDetailPage() {
   const router = useRouter();
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
-  const hasRun = useRef(false); // ✅ prevents double run in Strict Mode
+  const hasRun = useRef(false);
 
   useEffect(() => {
     const id = params?.id;
     if (!id) return;
 
-    // ✅ If already ran once, skip the second run
     if (hasRun.current) return;
     hasRun.current = true;
 
@@ -26,7 +25,7 @@ export default function CourseDetailPage() {
         const { data: session } = await authClient.getSession();
 
         if (!session) {
-          toast.error("Please login first!"); // ✅ now fires only once
+          toast.error("Please login first!");
           router.push("/login");
           return;
         }
@@ -49,7 +48,7 @@ export default function CourseDetailPage() {
     };
 
     loadData();
-  }, [params?.id]); // ✅ only id as dependency, not whole params/router
+  }, [params?.id]);
 
   if (loading)
     return (
