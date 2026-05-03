@@ -10,12 +10,11 @@ export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [photoUrl, setPhotoUrl] = useState(""); // ✅ Added back
+  const [photoUrl, setPhotoUrl] = useState("");
   const [loading, setLoading] = useState(false);
-  const [isGoogleLoading, setIsGoogleLoading] = useState(false); // ✅ Local loading for Google
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const router = useRouter();
 
-  // 1. Handle Email/Password Register
   const handleRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -24,15 +23,13 @@ export default function Register() {
       name,
       email,
       password,
-      image: photoUrl, // ✅ Mapping photoUrl to Better Auth image field
+      image: photoUrl,
     });
 
     if (error) {
       toast.error(error.message || "Registration failed!");
     } else {
-      // Better Auth usually logs the user in automatically after sign up
-      // If you want them to log in manually, keep the signOut()
-      await authClient.signOut(); 
+      await authClient.signOut();
       toast.success("Account Created! Please login 🎉");
       router.push("/login");
     }
@@ -40,7 +37,6 @@ export default function Register() {
     setLoading(false);
   };
 
-  // 2. Handle Google Sign Up
   const handleGoogleSignIn = async () => {
     setIsGoogleLoading(true);
     try {
@@ -67,7 +63,6 @@ export default function Register() {
         </div>
 
         <form onSubmit={handleRegister} className="space-y-5">
-          {/* Name */}
           <div className="form-control">
             <label className="label py-1">
               <span className="label-text font-bold text-gray-400 uppercase text-xs">
@@ -84,7 +79,6 @@ export default function Register() {
             />
           </div>
 
-          {/* Email */}
           <div className="form-control">
             <label className="label py-1">
               <span className="label-text font-bold text-gray-400 uppercase text-xs">
@@ -101,7 +95,6 @@ export default function Register() {
             />
           </div>
 
-          {/* Photo URL - ADDED BACK ✅ */}
           <div className="form-control">
             <label className="label py-1">
               <span className="label-text font-bold text-gray-400 uppercase text-xs">
@@ -117,7 +110,6 @@ export default function Register() {
             />
           </div>
 
-          {/* Password */}
           <div className="form-control">
             <label className="label py-1">
               <span className="label-text font-bold text-gray-400 uppercase text-xs">
@@ -151,7 +143,6 @@ export default function Register() {
           Or
         </div>
 
-        {/* Google Button — Fixed with local loading ✅ */}
         <button
           type="button"
           disabled={isGoogleLoading}
@@ -163,7 +154,9 @@ export default function Register() {
           ) : (
             <>
               <FcGoogle className="text-2xl" />
-              <span className="text-gray-700 font-bold">Continue with Google</span>
+              <span className="text-gray-700 font-bold">
+                Continue with Google
+              </span>
             </>
           )}
         </button>
