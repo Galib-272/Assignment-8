@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
-import { authClient } from "@/lib/auth-client"; // Import the client you created
+import { authClient } from "@/lib/auth-client";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -12,7 +12,6 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  // 1. Handle Email/Password Login via BetterAuth
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -20,25 +19,22 @@ export default function Login() {
     const { data, error } = await authClient.signIn.email({
       email,
       password,
-      callbackURL: "/", // Where to go after success
+      callbackURL: "/",
     });
 
     if (error) {
       toast.error(error.message || "Invalid email or password!");
     } else {
       toast.success("Login Successful!");
-      // BetterAuth handles the redirect, but window.location ensures 
-      // the Navbar detects the new session cookie immediately.
       window.location.href = "/";
     }
     setLoading(false);
   };
 
-  // 2. Handle Google Login via BetterAuth
   const handleGoogleLogin = async () => {
     await authClient.signIn.social({
       provider: "google",
-      callbackURL: "/", 
+      callbackURL: "/",
     });
   };
 
@@ -66,7 +62,9 @@ export default function Login() {
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-bold text-gray-600">Password</span>
+              <span className="label-text font-bold text-gray-600">
+                Password
+              </span>
             </label>
             <input
               type="password"
@@ -78,12 +76,16 @@ export default function Login() {
             />
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             disabled={loading}
             className="btn btn-primary w-full text-white text-lg capitalize"
           >
-            {loading ? <span className="loading loading-spinner"></span> : "Login"}
+            {loading ? (
+              <span className="loading loading-spinner"></span>
+            ) : (
+              "Login"
+            )}
           </button>
         </form>
 
