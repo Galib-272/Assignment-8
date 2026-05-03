@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react"; // ✅ add useRef
+import { useState, useEffect, useRef } from "react";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -11,10 +11,9 @@ export default function UpdateProfile() {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
-  const initialized = useRef(false); // ✅ tracks if fields are filled
+  const initialized = useRef(false);
 
   useEffect(() => {
-    // ✅ Only fill fields once when session loads
     if (session?.user && !initialized.current) {
       initialized.current = true;
       setName(session.user.name || "");
