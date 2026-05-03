@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Web Development Bootcamp",
+    "instructor": "John Doe",
+    "duration": "20 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Learn full-stack web development from scratch.",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    "category": "Development"
+  },
+  {
+    "id": 2,
+    "title": "Advanced UI/UX Design",
+    "instructor": "Jane Smith",
+    "duration": "15 hours",
+    "rating": 4.9,
+    "level": "Intermediate",
+    "description": "Master Figma and user-centric design principles.",
+    "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5",
+    "category": "Design"
+  },
+  {
+    "id": 3,
+    "title": "Digital Marketing Mastery",
+    "instructor": "Sarah Wilson",
+    "duration": "12 hours",
+    "rating": 4.7,
+    "level": "Beginner",
+    "description": "Grow your business with SEO and Social Media.",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+    "category": "Marketing"
+  },
+  {
+    "id": 4,
+    "title": "Python for Data Science",
+    "instructor": "Michael Chen",
+    "duration": "25 hours",
+    "rating": 4.8,
+    "level": "Advanced",
+    "description": "Analyze large datasets with Python and Pandas.",
+    "image": "https://images.unsplash.com/photo-1527474305487-b87b222841cc",
+    "category": "Development"
+  },
+  {
+    "id": 5,
+    "title": "Graphic Design Fundamentals",
+    "instructor": "Alex Rivera",
+    "duration": "10 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Learn the core principles of visual design.",
+    "image": "https://images.unsplash.com/photo-1558655146-d09347e92766",
+    "category": "Design"
+  },
+  {
+    "id": 6,
+    "title": "Social Media Strategy",
+    "instructor": "Emma Brown",
+    "duration": "8 hours",
+    "rating": 4.5,
+    "level": "Intermediate",
+    "description": "Build a brand voice across all platforms.",
+    "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7",
+    "category": "Marketing"
+  }
+]
